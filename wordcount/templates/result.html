@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WordCount - result</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/results.css' %}"
+    />
+  </head>
+  <body>
+    <h1>당신이 입력한 텍스트는 {{ total }}로 구성되어있습니다.</h1>
+
+    <a href="{% url 'home' %}"> 다시하기 </a>
+
+    <br />
+    <h2>입력한 텍스트 :</h2>
+    {{ full }}
+
+    <h2>단어 카운트 :</h2>
+
+    <div class="count">
+      <div class="count_item">
+        기존
+        <hr />
+        {% for word, howmany in dict %}
+        {{ word }} : {{ howmany }}
+        <br />
+        {%endfor%}
+      </div>
+
+      <div class="count_item">
+        중복 0
+        <hr />
+        {% for word, howmany in dict_duplicate %}
+        {{ word }} : {{ howmany }}
+        <br />
+        {%endfor%}
+      </div>
+
+      <div class="count_item">
+        중복 X
+        <hr />
+        {% for word, howmany in dict_no %}
+        {{ word }} : {{ howmany }}
+        <br />
+        {%endfor%}
+      </div>
+    </div>
+  </body>
+</html>
