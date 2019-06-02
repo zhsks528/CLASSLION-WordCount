@@ -1,0 +1,11 @@
+.count {
+  display: flex;
+  flex-direction: row;
+}
+
+.count_item {
+  display: inline-block;
+  border: 1px solid black;
+  width: 200px;
+  margin-right: 10px;
+}
